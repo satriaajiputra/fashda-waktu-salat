@@ -111,8 +111,6 @@ import Footer from '@/components/Footer.vue'
 import Alert from '@/components/Alert.vue'
 import About from '@/components/About.vue'
 
-// eslint-disable-next-line no-unused-vars
-import Mosque from '@/api/mosque'
 import PrayTime, { timeZone } from '@/api/pray-time'
 import forEach from 'lodash/forEach'
 
