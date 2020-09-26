@@ -94,7 +94,7 @@
                   <strong>Nama Masjid : </strong> {{modalMosque.name}}<br/>
                   <strong>Alamat Masjid :</strong> {{modalMosque.formatted_address}}
                 </p>
-                <a :href="`https://plus.codes/${modalMosque.plus_code.global_code}`" target="_blank" class="btn btn_primary mb-4">Lihat di Google Maps</a>
+                <a v-if="typeof modalMosque.plus_code.global_code !== 'undefined'" :href="`https://plus.codes/${modalMosque.plus_code.global_code}`" target="_blank" class="btn btn_primary mb-4">Lihat di Google Maps</a>
               </div>
             </div>
             <div id="map" class="map" ref="map"></div>
@@ -253,9 +253,8 @@ export default {
       this.moveMarker(pos.lat(), pos.lng())
     }
   },
-  created () {
-  },
   async mounted () {
+    // instansiasi google map api dengan cara asynchronous
     const googleMapApi = await GoogleMapsApiLoader({
       libraries: ['places'],
       apiKey: this.googleApiKey
